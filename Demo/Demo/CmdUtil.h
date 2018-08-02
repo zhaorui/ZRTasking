@@ -15,7 +15,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-NSData* runCommandSync(NSString* commandToRun, BOOL isErrorOutputEnable, int* status);
+NSData* runCommandSync(NSString* commandToRun, BOOL isErrorOutputEnable, int* _Nullable status);
 void runCommandAsnyc(NSString* commandToRun, BOOL isErrorOutputEnable, void(^completionHandler)(NSData* data, int exitStatus));
 
 

@@ -16,6 +16,10 @@ int main(int argc, const char * argv[]) {
         NSData* result = runCommandSync(@"/usr/bin/curl -fsSL taobao.com", YES, &status);
         NSLog(@"data length: %ld, status: %d", [result length], status);
         
+        NSData* data = runCommandSync(@"echo md5 | md5", YES, nil);
+        NSLog(@"md5 is %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        
+        
         runCommandAsnyc(@"/usr/bin/curl -fsSL taobao.com", YES, ^(NSData * _Nonnull data, int exitStatus) {
             NSLog(@"data length: %ld, status: %d", [data length], exitStatus);
         });

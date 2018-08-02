@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C54DC46D2112CABD002378DD /* COTTaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DC46C2112CABD002378DD /* COTTaskHelper.m */; };
 		C586D66C2112982000EF20F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C586D66B2112982000EF20F2 /* main.m */; };
 		C586D676211298BA00EF20F2 /* CmdUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C586D672211298B900EF20F2 /* CmdUtil.m */; };
-		C586D677211298BA00EF20F2 /* COTTaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C586D674211298B900EF20F2 /* COTTaskHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,11 +25,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C54DC46B2112CABD002378DD /* COTTaskHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COTTaskHelper.h; sourceTree = "<group>"; };
+		C54DC46C2112CABD002378DD /* COTTaskHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COTTaskHelper.m; sourceTree = "<group>"; };
 		C586D6682112982000EF20F2 /* Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Demo; sourceTree = BUILT_PRODUCTS_DIR; };
 		C586D66B2112982000EF20F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C586D672211298B900EF20F2 /* CmdUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdUtil.m; sourceTree = "<group>"; };
-		C586D673211298B900EF20F2 /* COTTaskHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COTTaskHelper.h; sourceTree = "<group>"; };
-		C586D674211298B900EF20F2 /* COTTaskHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COTTaskHelper.m; sourceTree = "<group>"; };
 		C586D675211298B900EF20F2 /* CmdUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdUtil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,8 +66,8 @@
 				C586D66B2112982000EF20F2 /* main.m */,
 				C586D675211298B900EF20F2 /* CmdUtil.h */,
 				C586D672211298B900EF20F2 /* CmdUtil.m */,
-				C586D673211298B900EF20F2 /* COTTaskHelper.h */,
-				C586D674211298B900EF20F2 /* COTTaskHelper.m */,
+				C54DC46B2112CABD002378DD /* COTTaskHelper.h */,
+				C54DC46C2112CABD002378DD /* COTTaskHelper.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -128,7 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C586D677211298BA00EF20F2 /* COTTaskHelper.m in Sources */,
+				C54DC46D2112CABD002378DD /* COTTaskHelper.m in Sources */,
 				C586D676211298BA00EF20F2 /* CmdUtil.m in Sources */,
 				C586D66C2112982000EF20F2 /* main.m in Sources */,
 			);
