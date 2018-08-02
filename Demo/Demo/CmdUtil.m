@@ -57,10 +57,7 @@ void runCommandAsnyc(NSString* commandToRun, BOOL isErrorOutputEnable, void(^com
         COTTaskHelper* helper = [COTTaskHelper new];
         [helper setIsErrorOutputEnable:YES];
         [helper setTask:task];
-        [helper setTaskComplete:^(NSData *response, int status) {
-            NSLog(@"data length: %ld, status: %d", [response length], status);
-            shouldKeepRuning = NO;
-        }];
+        [helper setTaskComplete:completionHandler];
         [helper launch];
         while (shouldKeepRuning && [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
     });
