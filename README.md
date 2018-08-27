@@ -12,7 +12,18 @@ Simple NSTask wrapper to run shell command synchronously or asynchronously
 
 #### Run command asynchronously
 ```objective-c
-  runCommandAsnyc(@"/usr/bin/curl -fsSL taobao.com", YES, ^(NSData * _Nonnull data, int exitStatus) {
+  runCommandAsync(@"/usr/bin/curl -fsSL taobao.com", YES, ^(NSData * _Nonnull data, int exitStatus) {
       NSLog(@"data length: %ld, status: %d", [data length], exitStatus);
   });
+```
+
+### Run command asynchronously with timeout
+```objective-c
+  runCommandAsyncTimeout(@"echo begin;sleep 10;echo end", YES, 2, ^(NSData * _Nonnull data, int exitStatus) {
+                if (exitStatus == CMD_TIMEOUT_ERR) {
+                    NSLog(@"command running timeout: %@", data);
+                } else {
+                    NSLog(@"command complete: %@", data);
+                }
+            });
 ```
