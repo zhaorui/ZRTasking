@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) NSTask *task;
 @property (assign) BOOL isErrorOutputEnable;
-@property (nonatomic, strong) NSMutableData* responseData;
 @property (nonatomic, copy) void (^outputHandler)(NSData *outputData);
 @property (nonatomic, copy) void (^taskFinish)(void); // Call immediately when a task finish
 @property (nonatomic, copy) void (^taskComplete)(NSData* response, int status); // task finish and response data is all received

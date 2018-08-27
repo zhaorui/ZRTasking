@@ -9,6 +9,7 @@
 
 
 @interface COTTaskHelper ()
+@property (nonatomic, strong) NSMutableData* responseData;
 @end
 
 @implementation COTTaskHelper
