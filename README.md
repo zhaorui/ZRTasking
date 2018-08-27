@@ -17,7 +17,7 @@ Simple NSTask wrapper to run shell command synchronously or asynchronously
   });
 ```
 
-### Run command asynchronously with timeout
+#### Run command asynchronously with timeout
 ```objective-c
   runCommandAsyncTimeout(@"echo begin;sleep 10;echo end", YES, 2, ^(NSData * _Nonnull data, int exitStatus) {
                 if (exitStatus == CMD_TIMEOUT_ERR) {
