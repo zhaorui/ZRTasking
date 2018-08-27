@@ -10,10 +10,10 @@
 		C54DC4582112C9D1002378DD /* ZRTasking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54DC44E2112C9D1002378DD /* ZRTasking.framework */; };
 		C54DC45D2112C9D1002378DD /* ZRTaskingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DC45C2112C9D1002378DD /* ZRTaskingTests.m */; };
 		C54DC45F2112C9D1002378DD /* ZRTasking.h in Headers */ = {isa = PBXBuildFile; fileRef = C54DC4512112C9D1002378DD /* ZRTasking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C54DC4722112CD1D002378DD /* CmdUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C54DC46E2112CD1C002378DD /* CmdUtil.h */; };
+		C54DC4722112CD1D002378DD /* CmdUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C54DC46E2112CD1C002378DD /* CmdUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54DC4732112CD1D002378DD /* CmdUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DC46F2112CD1C002378DD /* CmdUtil.m */; };
 		C54DC4742112CD1D002378DD /* COTTaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DC4702112CD1C002378DD /* COTTaskHelper.m */; };
-		C54DC4752112CD1D002378DD /* COTTaskHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C54DC4712112CD1D002378DD /* COTTaskHelper.h */; };
+		C54DC4752112CD1D002378DD /* COTTaskHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C54DC4712112CD1D002378DD /* COTTaskHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

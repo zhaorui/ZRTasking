@@ -15,7 +15,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NSData* runCommandSync(NSString* commandToRun, BOOL isErrorOutputEnable, int* _Nullable status);
-void runCommandAsnyc(NSString* commandToRun, BOOL isErrorOutputEnable, void(^completionHandler)(NSData* data, int exitStatus));
+void runCommandAsyncTimeout(NSString* commandToRun, BOOL isErrorOutputEnable, NSTimeInterval timeout, void(^completionHandler)(NSData* data, int exitStatus));
+void runCommandAsync(NSString* commandToRun, BOOL isErrorOutputEnable, void(^completionHandler)(NSData* data, int exitStatus));
 
 NS_ASSUME_NONNULL_END
 

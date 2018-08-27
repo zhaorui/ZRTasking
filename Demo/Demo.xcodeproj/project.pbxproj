@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C54DC46D2112CABD002378DD /* COTTaskHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DC46C2112CABD002378DD /* COTTaskHelper.m */; };
+		C54760D721341AB400477F1B /* ZRTasking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54760D621341AB400477F1B /* ZRTasking.framework */; };
 		C586D66C2112982000EF20F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C586D66B2112982000EF20F2 /* main.m */; };
-		C586D676211298BA00EF20F2 /* CmdUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C586D672211298B900EF20F2 /* CmdUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,12 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C54DC46B2112CABD002378DD /* COTTaskHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COTTaskHelper.h; sourceTree = "<group>"; };
-		C54DC46C2112CABD002378DD /* COTTaskHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COTTaskHelper.m; sourceTree = "<group>"; };
+		C54760D621341AB400477F1B /* ZRTasking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZRTasking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C586D6682112982000EF20F2 /* Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Demo; sourceTree = BUILT_PRODUCTS_DIR; };
 		C586D66B2112982000EF20F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C586D672211298B900EF20F2 /* CmdUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdUtil.m; sourceTree = "<group>"; };
-		C586D675211298B900EF20F2 /* CmdUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdUtil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,17 +34,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54760D721341AB400477F1B /* ZRTasking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C547607E21339F2100477F1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C54760D621341AB400477F1B /* ZRTasking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C586D65F2112982000EF20F2 = {
 			isa = PBXGroup;
 			children = (
 				C586D66A2112982000EF20F2 /* Demo */,
 				C586D6692112982000EF20F2 /* Products */,
+				C547607E21339F2100477F1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,10 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				C586D66B2112982000EF20F2 /* main.m */,
-				C586D675211298B900EF20F2 /* CmdUtil.h */,
-				C586D672211298B900EF20F2 /* CmdUtil.m */,
-				C54DC46B2112CABD002378DD /* COTTaskHelper.h */,
-				C54DC46C2112CABD002378DD /* COTTaskHelper.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -128,8 +130,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54DC46D2112CABD002378DD /* COTTaskHelper.m in Sources */,
-				C586D676211298BA00EF20F2 /* CmdUtil.m in Sources */,
 				C586D66C2112982000EF20F2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +253,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HN3FL9R65;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -262,6 +263,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HN3FL9R65;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

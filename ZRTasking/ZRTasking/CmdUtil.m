@@ -45,21 +45,29 @@ NSData* runCommandSync(NSString* commandToRun, BOOL isErrorOutputEnable, int* st
 
 /// @name Run command asynchronously
 
-void runCommandAsnyc(NSString* commandToRun, BOOL isErrorOutputEnable, void(^completionHandler)(NSData* data, int exitStatus)) {
-    
+void runCommandAsyncTimeout(NSString* commandToRun, BOOL isErrorOutputEnable, NSTimeInterval timeout, void(^completionHandler)(NSData* data, int exitStatus)) {
     dispatch_queue_t wq = dispatch_queue_create("com.zhaorui.on.other.thread", DISPATCH_QUEUE_SERIAL);
+    NSDate* future = [NSDate dateWithTimeIntervalSinceNow:timeout + 5]; //run loop shall wait for the timeout event
     dispatch_async(wq, ^{
-        NSTask *task = [NSTask new];
-        [task setLaunchPath: @"/bin/sh"];
-        [task setArguments: @[@"-c", commandToRun]];
-        __block BOOL shouldKeepRuning = YES;
-        
+        NSTask *task = buildTask(commandToRun);
         COTTaskHelper* helper = [COTTaskHelper new];
         [helper setIsErrorOutputEnable:YES];
         [helper setTask:task];
         [helper setTaskComplete:completionHandler];
+        [helper setTaskFinish:^{}];
         [helper launch];
-        while (shouldKeepRuning && [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+        
+        [NSRunLoop currentRunLoop];
+        [NSTimer scheduledTimerWithTimeInterval:timeout
+                                         target:helper
+                                       selector:@selector(timesup:)
+                                       userInfo:nil
+                                        repeats:NO];
+        [[NSRunLoop currentRunLoop] runUntilDate:future];
+        NSLog(@"runloop finish!");
     });
-    
+}
+
+void runCommandAsync(NSString* commandToRun, BOOL isErrorOutputEnable, void(^completionHandler)(NSData* data, int exitStatus)) {
+    runCommandAsyncTimeout(commandToRun, isErrorOutputEnable, 60, completionHandler);
 }

@@ -7,8 +7,8 @@
 
 #import "COTTaskHelper.h"
 
+
 @interface COTTaskHelper ()
-    @property (nonatomic, strong) NSMutableData* responseData;
 @end
 
 @implementation COTTaskHelper
@@ -27,12 +27,29 @@
 
     NSFileHandle *fhOut = [outputPipe fileHandleForReading];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedData:) name:NSFileHandleDataAvailableNotification object:fhOut];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(complete:) name:NSTaskDidTerminateNotification object:self.task];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedData:)
+                                                 name:NSFileHandleDataAvailableNotification
+                                               object:fhOut];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(complete:)
+                                                 name:NSTaskDidTerminateNotification
+                                               object:self.task];
 
     [fhOut waitForDataInBackgroundAndNotify];
 
     [self.task launch];
+}
+
+-(void)timesup:(NSTimer *)timer {
+    if (self.task.running) {
+        if (self.taskComplete) {
+            self.taskComplete(self.responseData, CMD_TIMEOUT_ERR);
+        }
+        [self.task terminate];
+    }
+    [timer invalidate];
+    timer = nil;
 }
 
 - (void)receivedData:(NSNotification *)notification
@@ -40,23 +57,25 @@
     NSFileHandle *fh = [notification object];
     NSData *outputData = [fh availableData];
 
-    
-    
     if(self.outputHandler) {
         self.outputHandler(outputData);
     }
 
+    //Fix COTTaskHelper Bug, which task is teminated, but its output is not read.
     if(self.task.isRunning || [outputData length]) {
         [self.responseData appendData:outputData];
         [fh waitForDataInBackgroundAndNotify];
     } else {
-        self.taskComplete(self.responseData, self.task.terminationStatus);
+        if (self.taskComplete) {
+            self.taskComplete(self.responseData, self.task.terminationStatus);
+        }
     }
 }
 
 - (void)complete:(NSNotification *)notification
 {
     if(self.taskFinish) {
+        NSLog(@"command[%@] finish", self.task.arguments[1]);
         self.taskFinish();
     }
 }
